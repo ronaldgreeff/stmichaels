@@ -19,6 +19,11 @@
 
         {# Global stylesheets #}
         <link rel="stylesheet" type="text/css" href="{% static 'css/stmichaelsinn.css' %}">
+        <link href="{% static 'css/bootstrap.min.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'css/streamfields.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'css/owl.carousel.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'css/revolution_slider.css' %}" type="text/css" rel="stylesheet" />
 
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
@@ -32,6 +37,17 @@
 
         {# Global javascript #}
         <script type="text/javascript" src="{% static 'js/stmichaelsinn.js' %}"></script>
+
+        <script type="text/javascript" src="{% static 'js/jquery-2.2.3.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/isotope.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/magnific-popup.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/revolution.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/tools.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/revolution_slider.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/slick.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
 
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
