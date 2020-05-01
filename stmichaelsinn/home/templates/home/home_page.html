@@ -1,21 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
 
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-{% include 'home/welcome_page.html' %}
+{% image page.hero_image width-400 %}
+{{ page.hero_name }}
+{% image page.hero_logo fill-80x80 %}
+
+{% for block in page.body %}
+    <section class="block-{{ block.block_type }}">
+        {% include_block block %}
+    </section>
+{% endfor %}
 
 {% endblock content %}
