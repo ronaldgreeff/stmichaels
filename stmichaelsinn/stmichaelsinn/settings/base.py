@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-from uwkm_streamfields.settings.base import *
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
@@ -27,6 +26,9 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 INSTALLED_APPS = [
     'home',
     'search',
+    'streams',
+    'flexible',
+    'webbase',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -39,10 +41,6 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-
-    # uwkm streamfields
-    'wagtail.contrib.table_block',
-    'uwkm_streamfields',
 
     'modelcluster',
     'taggit',
@@ -166,8 +164,3 @@ WAGTAIL_SITE_NAME = "stmichaelsinn"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
-
-# uwkm streamfields
-BS_SIZE = 'sm'
-STREAMFIELDS = '__all__'
-EXCLUDE_STREAMFIELDS = []
