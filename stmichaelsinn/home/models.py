@@ -9,6 +9,8 @@ from streams import blocks as stream_blocks
 
 
 class HomePage(Page):
+
+    # main company info, usually a hero image
     hero_image = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
@@ -27,12 +29,16 @@ class HomePage(Page):
         related_name='+',
         help_text="Place logo. If none, defaults to place name.")
 
-    body = StreamField([
+    # business has 3 facets and should come after hero image.
+    facets = StreamField([
             ('facet', stream_blocks.HomeFacetBlock(
                 required=False,
                 max_length=650,
-                help_text='the adding text')),
+                help_text='E.g. Restuarant, Hotel, Function Hall')),
         ])
+
+    # extra streamfields
+    # body =  StreamField([])
 
     footer = models.ForeignKey(
         'webbase.Footer',
@@ -45,7 +51,8 @@ class HomePage(Page):
         FieldPanel('hero_image'),
         FieldPanel('hero_name'),
         FieldPanel('hero_logo'),
-        StreamFieldPanel('body'),
+        StreamFieldPanel('facets'),
+        # StreamFieldPanel('body'),
         SnippetChooserPanel("footer"),
     ]
 

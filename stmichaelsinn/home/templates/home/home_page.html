@@ -11,14 +11,35 @@
 
 {% block content %}
 
-{% image page.hero_image width-400 %}
-{{ page.hero_name }}
-{% image page.hero_logo fill-80x80 %}
+{% image page.hero_image width-1920 as x %}
+<div class="hero-image" style="background-image: url({{ x.url }})">
+	<div class="hero-text">
+		{% if not page.hero_logo %}
+		<h1>{{ page.hero_name }}</h1>
+		{% else %}
+			{% image page.hero_logo fill-200x200 %}
+		{% endif %}
+	</div>
+</div>
 
+<section class="block-{{ block.block_type }}">
+	<div class="row">
+		<!-- this needs a custom filter -->
+		12/{{ page.facets|length }}
+		{% for facet in page.facets %}
+			<div>
+				{% include_block facet %}
+			</div>
+		{% endfor %}
+	</div>
+</section>
+
+<!--
 {% for block in page.body %}
-    <section class="block-{{ block.block_type }}">
-        {% include_block block %}
-    </section>
+	<section class="block-{{ block.block_type }}">
+		{% include_block block %}
+	</section>
 {% endfor %}
+-->
 
 {% endblock content %}
